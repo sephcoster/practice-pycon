@@ -64,6 +64,7 @@ Now, we need to make a view for users to be able to signup at. Let's update our 
        form_class = UserCreationForm
        model = User
        template_name = 'accounts/signup.html'
+       success_url = reverse_lazy('home')
 
 
 URL
