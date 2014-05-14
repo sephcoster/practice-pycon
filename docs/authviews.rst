@@ -64,7 +64,6 @@ Now, we need to make a view for users to be able to signup at. Let's update our 
        form_class = UserCreationForm
        model = User
        template_name = 'accounts/signup.html'
-       success_url = reverse_lazy('login')
 
 
 URL
@@ -354,7 +353,9 @@ to the imports area near the top of the file. We need to add a few mixins and at
 ``SignUpView``
 ^^^^^^^^^^^^^^
 
-Add ``views.AnonymousRequiredMixin`` and ``views.FormValidMessageMixin`` to the class's signature. We should also add a ``form_valid_message`` attribute to the class which'll be shown to the user when they have successfully signed up.
+Add ``views.AnonymousRequiredMixin`` and ``views.FormValidMessageMixin`` to the class's signature. We should also add a ``form_valid_message`` attribute to the class which'll be shown to the user when they have successfully signed up.  
+
+To tell our form where to bring users on success, let's also add ``success_url = reverse_lazy('login')`` to our SignUpView class. 
 
 The ``AnonymousRequiredMixin`` prevents authenticated users from accessing the view.
 
